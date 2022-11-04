@@ -73,10 +73,11 @@ namespace Deck{
         const Deck operator--(int i);
         const Deck& operator--();
 
-        Deck operator+(const Card& c);
-        Deck operator+(const Deck& d);
+        //Deck operator+(const Card& c);
+        //Deck operator+(const Deck& d);
+        friend const Deck operator+(const Deck& first, const Deck& second);
 
-        Deck operator+=(const Card& c);
+
         Deck operator+=(const Deck& d);
     };
 }

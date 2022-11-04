@@ -406,7 +406,7 @@ namespace Deck{
         return *this;
     }
 
-    Deck Deck::operator+(const Card& c) {
+    /*Deck Deck::operator+(const Card& c) {
         if(amount == 52)
             throw std::out_of_range("Deck is full...");
 
@@ -454,13 +454,29 @@ namespace Deck{
         }
 
         return res;
-    }
+    } */
 
-    Deck Deck::operator+=(const Card& c) {
-        if(!repeat_check(c.rang, c.suit))
-            add_card(c);
+    const Deck operator+(const Deck& first, const Deck& second){
+        Deck res;
+        try {
+            Card *ptr = new Card[first.amount];
+            std::memcpy(ptr, first.cards, first.amount * sizeof(Card));
+            res.cards = ptr;
+            res.amount = first.amount;
+        }
+        catch(std::bad_alloc& ba){
+            std::cout << ba.what();
+            delete[] first.cards;
+            res.cards = nullptr;
+            throw ba;
+        }
 
-        return *this;
+        for(int i = 0; i < second.amount; i++){
+            if(!first.repeat_check(second.cards[i].rang, second.cards[i].suit))
+                res.add_card(second.cards[i]);
+        }
+
+        return res;
     }
 
     Deck Deck::operator+=(const Deck &d) {

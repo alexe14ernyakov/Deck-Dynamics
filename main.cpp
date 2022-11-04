@@ -10,8 +10,14 @@ int main() {
     //d.sort();
     //d.print(std::cout);
 
+    Deck::Deck d(1);
+    Deck::Card c(Deck::KING, Deck::SPADES);
 
-    std::cout << "How do you want to set your deck?" << std::endl;
+    Deck::Deck r = c + d;
+    r.print(std::cout);
+
+
+    /*std::cout << "How do you want to set your deck?" << std::endl;
     std::cout << "1. Create empty deck" << std::endl;
     std::cout << "2. By amount of cards(random)" << std::endl;
     std::cout << "3. By first card" << std::endl;
@@ -65,7 +71,7 @@ int main() {
         menu();
         std::cin >> a;
         action(d, a);
-    } while(a != 0);
+    } while(a != 0);*/
     return 0;
 }
 
