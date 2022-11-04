@@ -78,7 +78,7 @@ namespace Deck{
         friend const Deck operator+(const Deck& first, const Deck& second);
 
 
-        Deck operator+=(const Deck& d);
+        Deck& operator+=(const Deck& d);
     };
 }
 

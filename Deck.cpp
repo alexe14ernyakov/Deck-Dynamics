@@ -269,7 +269,7 @@ namespace Deck{
             delete[] cards;
         amount = other.amount;
         cards = new Card[amount];
-        for(size_t i = 0; i < amount; ++i){
+        for(int i = 0; i < amount; ++i){
             cards[i].suit = other.cards[i].suit;
             cards[i].rang= other.cards[i].rang;
         }
@@ -483,7 +483,7 @@ namespace Deck{
         return res;
     }
 
-    Deck Deck::operator+=(const Deck &d) {
+    Deck& Deck::operator+=(const Deck &d) {
         for(int i = 0; i < d.amount; i++){
             if(!repeat_check(d.cards[i].rang, d.cards[i].suit))
                 add_card(d.cards[i]);
