@@ -65,7 +65,7 @@ namespace Deck{
         Deck &operator=(const Deck &other) noexcept;
         Deck &operator=(Deck&& d) noexcept;
 
-        const Card& operator[](int number) const;
+        const Card& operator[](int n) const;
 
         const Deck operator++(int i);
         const Deck& operator++();

@@ -263,6 +263,8 @@ namespace Deck{
     }
 
     Deck &Deck::operator=(const Deck &other) noexcept {
+        if(this == &other)
+            return *this;
         if (cards != nullptr)
             delete[] cards;
         amount = other.amount;
@@ -275,6 +277,8 @@ namespace Deck{
     }
 
     Deck &Deck::operator=(Deck &&d) noexcept {
+        if(this == &d)
+            return *this;
         if (cards != nullptr)
             delete[] cards;
         cards = d.cards;
@@ -285,11 +289,11 @@ namespace Deck{
         return *this;
     }
 
-    const Card &Deck::operator[](int number) const {
-        if(number < 1 || number > amount)
+    const Card &Deck::operator[](int n) const {
+        if(n < 0 || n > amount - 1)
             throw std::logic_error("There is no such card in the deck...");
 
-        return cards[number - 1];
+        return cards[n];
     }
 
     const Deck Deck::operator++(int i) {

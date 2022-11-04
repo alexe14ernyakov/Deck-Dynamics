@@ -10,12 +10,15 @@ int main() {
     //d.sort();
     //d.print(std::cout);
 
-    Deck::Deck d(1);
+    /*Deck::Deck d(1);
     Deck::Card c(Deck::KING, Deck::SPADES);
 
     Deck::Deck r = c + d;
-    r.print(std::cout);
+    r.print(std::cout);*/
 
+    Deck::Deck d(Deck::Card(Deck::JACK, Deck::SPADES));
+    d = d;
+    d.print(std::cout);
 
     /*std::cout << "How do you want to set your deck?" << std::endl;
     std::cout << "1. Create empty deck" << std::endl;
