@@ -238,15 +238,33 @@ namespace Deck{
     }
 
     bool cmp(const Card& a, const Card& b){
-        /*if(a.suit > b.suit)
+        /*if(a.rang > b.rang && a.suit > b.suit)
             return true;
+        if(a.rang > b.rang && a.suit < b.suit)
+            return true;
+        if(a.rang < b.rang && a.suit < b.suit)
+            return false;
+        if(a.rang < b.rang && a.suit > b.suit)
+            return false;
+        if(a.rang == b.rang && a.suit < b.suit)
+            return true;
+        if(a.rang == b.rang && a.suit > b.suit)
+            return false;
+        if(a.rang < b.rang)
+            return true;
+        if(a.rang > b.rang)
+            return false;*/
+        if(a.suit < b.suit)
+            return true;
+        else if(a.suit > b.suit)
+            return  false;
         else{
             if(a.rang < b.rang)
-                return true;
-            else
                 return false;
-        }*/
-        return a.suit > b.suit;
+            else
+                return true;
+        }
+        //return a.suit > b.suit;
     }
 
     void Deck::sort() {

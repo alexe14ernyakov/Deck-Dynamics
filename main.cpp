@@ -16,18 +16,14 @@ int main() {
     Deck::Deck r = c + d;
     r.print(std::cout);*/
 
-    Deck::Deck d(Deck::Card(Deck::JACK, Deck::SPADES));
-    d = d;
-    d.print(std::cout);
-
-    /*std::cout << "How do you want to set your deck?" << std::endl;
+    std::cout << "How do you want to set your deck?" << std::endl;
     std::cout << "1. Create empty deck" << std::endl;
     std::cout << "2. By amount of cards(random)" << std::endl;
     std::cout << "3. By first card" << std::endl;
     std::cout << "4. Test the program" << std::endl << ">";
     std::cout << "" << std::endl;
 
-    Deck::Deck d;
+    //Deck::Deck d;
     int c;
     std::cin >> c;
     switch (c) {
@@ -74,7 +70,7 @@ int main() {
         menu();
         std::cin >> a;
         action(d, a);
-    } while(a != 0);*/
+    } while(a != 0);
     return 0;
 }
 
