@@ -23,7 +23,7 @@ int main() {
     std::cout << "4. Test the program" << std::endl << ">";
     std::cout << "" << std::endl;
 
-    //Deck::Deck d;
+    Deck::Deck d;
     int c;
     std::cin >> c;
     switch (c) {
@@ -427,3 +427,28 @@ TEST(DeckTest, PlusEqTest2){
     d += Deck::Deck(30);
     EXPECT_EQ( d.get_amount() <= 52, 1);
 }
+
+TEST(DeckTest, CopyTest1){
+    Deck::Deck c(40);
+    Deck::Deck d(c);
+    EXPECT_EQ(  d.get_amount(), 40);
+}
+
+TEST(DeckTest, CopyTest2){
+    Deck::Deck c(20);
+    c = c;
+    EXPECT_EQ(c.get_amount(), 20);
+}
+
+TEST(DeckTest, MoveTest1){
+    Deck::Deck c(40);
+    Deck::Deck d = std::move(c);
+    EXPECT_EQ(  d.get_amount() == 40 && c.get_amount() == 0, 1);
+}
+
+TEST(DeckTest, MoveTest2){
+    Deck::Deck c(32);
+    c = std::move(c);
+    EXPECT_EQ(c.get_amount(), 32);
+}
+

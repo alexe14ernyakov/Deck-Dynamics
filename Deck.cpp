@@ -125,7 +125,7 @@ namespace Deck{
         amount = d.amount;
         try {
             cards = new Card[amount];
-            std::memcpy(cards, d.cards, sizeof(Card) * amount);
+            memcpy(cards, d.cards, sizeof(Card) * amount);
         }
         catch(std::bad_alloc& ba){
             std::cout << ba.what();
@@ -171,7 +171,7 @@ namespace Deck{
 
         try {
             Card *ptr = new Card[amount + 1];
-            std::memcpy(ptr, cards, amount * sizeof(Card));
+            memcpy(ptr, cards, amount * sizeof(Card));
             ptr[amount] = Card(r, s);
             delete[] cards;
             cards = ptr;
@@ -193,7 +193,7 @@ namespace Deck{
             throw std::out_of_range("The deck is full...");
         try {
             Card *ptr = new Card[amount + 1];
-            std::memcpy(ptr, cards, amount * sizeof(Card));
+            memcpy(ptr, cards, amount * sizeof(Card));
             ptr[amount] = c;
             delete[] cards;
             cards = ptr;
@@ -327,7 +327,7 @@ namespace Deck{
 
         try {
             Card *ptr = new Card[amount + 1];
-            std::memcpy(ptr, cards, amount * sizeof(Card));
+            memcpy(ptr, cards, amount * sizeof(Card));
             ptr[amount] = Card(r, s);
             delete[] cards;
             cards = ptr;
@@ -357,7 +357,7 @@ namespace Deck{
 
         try {
             Card *ptr = new Card[amount + 1];
-            std::memcpy(ptr, cards, amount * sizeof(Card));
+            memcpy(ptr, cards, amount * sizeof(Card));
             ptr[amount] = Card(r, s);
             delete[] cards;
             cards = ptr;
@@ -387,7 +387,7 @@ namespace Deck{
 
         try {
             Card *ptr = new Card[amount - 1];
-            std::memcpy(ptr, cards, (amount - 1) * sizeof(Card));
+            memcpy(ptr, cards, (amount - 1) * sizeof(Card));
             delete[] cards;
             cards = ptr;
         }
@@ -413,7 +413,7 @@ namespace Deck{
 
         try {
             Card *ptr = new Card[amount - 1];
-            std::memcpy(ptr, cards, (amount - 1) * sizeof(Card));
+            memcpy(ptr, cards, (amount - 1) * sizeof(Card));
             delete[] cards;
             cards = ptr;
         }
@@ -482,7 +482,7 @@ namespace Deck{
         Deck res;
         try {
             Card *ptr = new Card[first.amount];
-            std::memcpy(ptr, first.cards, first.amount * sizeof(Card));
+            memcpy(ptr, first.cards, first.amount * sizeof(Card));
             res.cards = ptr;
             res.amount = first.amount;
         }
